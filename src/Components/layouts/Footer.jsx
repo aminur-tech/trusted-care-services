@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-base-100 text-base-content pt-10 pb-5">
+    <footer className="bg-slate-900 text-white pt-10 pb-5">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* About */}
@@ -20,10 +20,10 @@ const Footer = () => {
         <div>
           <h2 className="text-xl font-bold mb-3">Quick Links</h2>
           <ul className="space-y-2">
-            <li><Link href="/" className="hover:text-primary">Home</Link></li>
-            <li><Link href="/services" className="hover:text-primary">Services</Link></li>
-            <li><Link href="/my-bookings" className="hover:text-primary">My Bookings</Link></li>
-            <li><Link href="/login" className="hover:text-primary">Login</Link></li>
+            <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+            <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
+            <li><Link href="/my-bookings" className="hover:text-primary transition-colors">My Bookings</Link></li>
+            <li><Link href="/login" className="hover:text-primary transition-colors">Login</Link></li>
           </ul>
         </div>
 
@@ -31,13 +31,13 @@ const Footer = () => {
         <div>
           <h2 className="text-xl font-bold mb-3">Follow Us</h2>
           <div className="flex space-x-4 text-2xl">
-            <Link href="#" className="hover:text-primary">
+            <Link href="#" className="hover:text-primary transition-colors">
               <FaFacebook />
             </Link>
-            <Link href="#" className="hover:text-primary">
+            <Link href="#" className="hover:text-primary transition-colors">
               <FaInstagram />
             </Link>
-            <Link href="#" className="hover:text-primary">
+            <Link href="#" className="hover:text-primary transition-colors">
               <FaTwitter />
             </Link>
           </div>

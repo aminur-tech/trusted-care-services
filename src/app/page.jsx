@@ -1,9 +1,16 @@
+import About from "@/Components/home/About";
+import Banner from "@/Components/home/Banner";
+import Testimonials from "@/Components/home/Testimonials";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      
-    </div>
+    <>
+      <div className="">
+        <Banner />
+        <About />
+        <Testimonials />
+      </div>
+    </>
   );
 }
