@@ -1,5 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import Social from "./Social";
 
 const Register = () => {
@@ -9,9 +11,10 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const onSubmit = (data) => {
     console.log(data);
-    // submit to backend here
   };
 
   return (
@@ -28,9 +31,7 @@ const Register = () => {
               className="input input-bordered w-full"
               {...register("nid", { required: "NID is required" })}
             />
-            {errors.nid && (
-              <p className="text-error text-sm">{errors.nid.message}</p>
-            )}
+            {errors.nid && <p className="text-error text-sm">{errors.nid.message}</p>}
 
             {/* Name */}
             <input
@@ -39,9 +40,7 @@ const Register = () => {
               className="input input-bordered w-full"
               {...register("name", { required: "Name is required" })}
             />
-            {errors.name && (
-              <p className="text-error text-sm">{errors.name.message}</p>
-            )}
+            {errors.name && <p className="text-error text-sm">{errors.name.message}</p>}
 
             {/* Email */}
             <input
@@ -50,9 +49,7 @@ const Register = () => {
               className="input input-bordered w-full"
               {...register("email", { required: "Email is required" })}
             />
-            {errors.email && (
-              <p className="text-error text-sm">{errors.email.message}</p>
-            )}
+            {errors.email && <p className="text-error text-sm">{errors.email.message}</p>}
 
             {/* Contact */}
             <input
@@ -61,35 +58,40 @@ const Register = () => {
               className="input input-bordered w-full"
               {...register("contact", { required: "Contact is required" })}
             />
-            {errors.contact && (
-              <p className="text-error text-sm">{errors.contact.message}</p>
-            )}
+            {errors.contact && <p className="text-error text-sm">{errors.contact.message}</p>}
 
-            {/* Password */}
-            <input
-              type="password"
-              placeholder="Password"
-              className="input input-bordered w-full"
-              {...register("password", {
-                required: "Password is required",
-                minLength: {
-                  value: 6,
-                  message: "Password must be at least 6 characters",
-                },
-                validate: {
-                  hasUpper: (v) =>
-                    /[A-Z]/.test(v) ||
-                    "Must include at least 1 uppercase letter",
-                  hasLower: (v) =>
-                    /[a-z]/.test(v) ||
-                    "Must include at least 1 lowercase letter",
-                },
-              })}
-            />
+            {/* Password with Eye Toggle */}
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="input input-bordered w-full pr-10"
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters",
+                  },
+                  validate: {
+                    hasUpper: (v) =>
+                      /[A-Z]/.test(v) || "Must include 1 uppercase letter",
+                    hasLower: (v) =>
+                      /[a-z]/.test(v) || "Must include 1 lowercase letter",
+                  },
+                })}
+              />
+
+              {/* Eye Icon */}
+              <span
+                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </span>
+            </div>
+
             {errors.password && (
-              <p className="text-error text-sm">
-                {errors.password.message}
-              </p>
+              <p className="text-error text-sm">{errors.password.message}</p>
             )}
 
             <button type="submit" className="btn btn-primary w-full">
@@ -101,6 +103,13 @@ const Register = () => {
 
           {/* Social Login */}
           <Social />
+          <p className="text-center text-sm mt-3">
+            Already have an account?{" "}
+            <a href="/login" className="link link-primary font-semibold">
+              Login
+            </a>
+          </p>
+
         </div>
       </div>
     </div>
