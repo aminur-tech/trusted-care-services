@@ -21,7 +21,7 @@ const About = () => {
   ];
 
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-white">
       <div className="bg-gray-100 p-6 rounded-2xl">
         
         {/* Header Section */}

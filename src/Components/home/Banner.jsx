@@ -25,7 +25,7 @@ const Banner = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-12 lg:py-20">
+    <section className="relative overflow-hidden bg-slate-50 p-20">
       {/* Decorative Blur Background */}
       <div className="absolute top-0 right-0 -translate-y-12 translate-x-12 blur-[120px] opacity-30">
         <div className="h-96 w-96 rounded-full bg-primary"></div>

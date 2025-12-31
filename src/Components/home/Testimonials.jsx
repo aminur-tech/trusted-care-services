@@ -30,7 +30,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="bg-slate-50 py-20 lg:py-24 mb-10">
+    <section className="bg-slate-50 mb-10 p-8">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}
@@ -42,7 +42,7 @@ const Testimonials = () => {
             Trusted by Thousands of Families
           </h3>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            Don't just take our word for it. Here is what families across the country are saying about our care services.
+            Do not just take our word for it. Here is what families across the country are saying about our care services.
           </p>
         </div>
 

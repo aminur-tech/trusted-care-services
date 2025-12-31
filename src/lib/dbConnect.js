@@ -1,7 +1,7 @@
 const uri = process.env.MONGODB_URI;
 const dbname = process.env.MONGODB_DB;
 export const collections = {
-  PRODUCTS: "products",
+  SERVICES: "services",
   USERS: "users",
   CART: "cart",
   ORDER: "order",
