@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import Social from "./Social";
+import { postUser } from "@/actions/server/auth";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
   const {
@@ -12,9 +15,37 @@ const Register = () => {
   } = useForm();
 
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const onSubmit = async (data) => {
+    try {
+      const res = await postUser(data);
+       console.log("POST USER RESPONSE:", res); 
+
+      if (res?.success) {
+        await Swal.fire({
+          icon: "success",
+          title: "Registration Successful!",
+          text: "Please login to continue.",
+          confirmButtonText: "Go to Login",
+        });
+
+        router.push("/login");
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Registration Failed",
+          text: res?.message || "Something went wrong",
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Server error. Please try again.",
+      });
+    }
   };
 
   return (

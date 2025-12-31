@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NavLink from "../buttons/NavLink";
 import Logo from "./Logo";
+import AuthButtons from "../buttons/AuthButtons";
 
 const Navbar = () => {
   const links =
@@ -11,7 +12,7 @@ const Navbar = () => {
       <li><NavLink href="/services" >
         Services
       </NavLink></li>
-      <li><NavLink href="/my-bookings" >
+      <li><NavLink href="/bookings" >
         My Bookings
       </NavLink></li>
 
@@ -37,14 +38,9 @@ const Navbar = () => {
           {links}
         </ul>
       </div>
-      <div className="navbar-end space-x-2">
-        <Link href="/login" className="btn btn-primary btn-outline">
-          Sign In
-        </Link>
-        <Link href="/register" className="btn btn-primary">
-          Sign Up
-        </Link>
-      </div>
+     <div className="navbar-end">
+       <AuthButtons></AuthButtons>
+     </div>
 
     </div>
   );
